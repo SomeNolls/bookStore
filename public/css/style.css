@@ -1,0 +1,52 @@
+
+.nav-link.white{
+    color: white;
+    padding: 0 10px;
+}
+.nav-link.white:hover{
+    color: #a0aec0;
+}
+
+.fixed_header.white a:hover{
+    color: #a0aec0;
+    padding: 0 10px;
+}
+
+.logo{
+    height: 40px;
+    width: auto;
+    padding-left: 30px;
+    padding-right: 20px;
+}
+.welcome_links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.welcome_links ul li{
+    padding: 0 15px;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body
+{
+    height: 100%;
+    background-image: url("/images/booksBackground.png");
+    background-color: #cccccc;
+}
+
+.align-content-right{
+    display: flex;
+    justify-content: flex-end;
+    text-align: right;
+}
+
+.book-image img{
+    height: 10px;
+    width: auto;
+}
