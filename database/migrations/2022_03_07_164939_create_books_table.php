@@ -21,8 +21,6 @@ return new class extends Migration
             $table->unsignedInteger('number');
             $table->unsignedInteger('stock');
             $table->timestamps();
-
-            $table->index('user_id');
         });
     }
 
