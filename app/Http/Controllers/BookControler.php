@@ -42,7 +42,11 @@ class BookControler extends Controller
 
     public function show()
     {
-        $data = Book::orderBy('created_at', 'desc')->get();
+        $data = Book::orderBy('created_at', 'desc')
+            ->when(request('search'), function ($query, $search) {
+                $query->where('title', 'like', '%'.$search.'%');
+            })
+            ->get();
         return view('books/books', [ 'books'=>$data]);
     }
 

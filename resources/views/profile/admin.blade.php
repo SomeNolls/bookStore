@@ -22,22 +22,22 @@
                     <div class="row ">
                         <table class="m-5 mt-0 card-body">
                             <tr class="border border-dark border-1 col-6 ">
-                                <td class="w-25" style="border-right: 1px solid #1c1f23; padding-left: 6px">Title</td>
-                                <td class="w-25" style="border-right: 1px solid #1c1f23; padding-left: 6px">Current stock</td>
-                                <td class="w-25" style="border-right: 1px solid #1c1f23; padding-left: 6px">All stock</td>
-                                <td style="border-right: 1px solid #1c1f23; padding-left: 6px">Delete book</td>
-                                <td style=" padding-left: 6px">Edit book</td>
+                                <td class="w-25">Title</td>
+                                <td class="w-25">Current stock</td>
+                                <td class="w-25">All stock</td>
+                                <td>Delete book</td>
+                                <td>Edit book</td>
                             </tr>
 
 
                             @foreach($books as $book)
 
                                 <tr class="border border-dark border-1 col-6 ">
-                                    <td class="w-25" style="border-right: 1px solid #1c1f23; padding-left: 6px">{{$book->title}}</td>
-                                    <td class="w-25" style="border-right: 1px solid #1c1f23; padding-left: 6px">{{$book->number}}</td>
-                                    <td class="w-25" style="border-right: 1px solid #1c1f23; padding-left: 6px">{{$book->stock}}</td>
-                                    <td style="border-right: 1px solid #1c1f23; padding-left: 6px"><a href="{{'/delete/'.$book['id']}}" class="btn btn-dark btn-primary">Delete</a></td>
-                                    <td style="padding-left: 6px"><a href="{{'/edit/'.$book['id']}}" class="btn btn-dark btn-primary">Edit</a></td>
+                                    <td class="w-25">{{$book->title}}</td>
+                                    <td class="w-25">{{$book->number}}</td>
+                                    <td class="w-25">{{$book->stock}}</td>
+                                    <td><a href="{{'/delete/'.$book['id']}}" class="btn btn-dark btn-primary">Delete</a></td>
+                                    <td><a href="{{'/edit/'.$book['id']}}" class="btn btn-dark btn-primary">Edit</a></td>
                                 </tr>
 
                             @endforeach

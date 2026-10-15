@@ -8,7 +8,7 @@
                 <div class="row pt-5">
                     <div class="col-6 ">
 
-                        <img src="/storage/{{$book->img}}"  style="width: 80%">
+                        <img src="/storage/{{$book->img}}">
 
                     </div>
                     <div class="col-6">
@@ -69,7 +69,7 @@
 
                                 <div class="row mb-0 mt-4">
                                     <div class="col">
-                                        <button type="submit" class="btn btn-primary " style="width: 40%">
+                                        <button type="submit" class="btn btn-primary ">
                                             {{ __('Rent') }}
                                         </button>
                                     </div>
