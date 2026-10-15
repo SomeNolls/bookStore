@@ -128,6 +128,8 @@
             </div>
         </div>
 
+        <div class="js-container"></div>
 
+        <script src="{{ mix('js/welcome.js') }}"></script>
     </body>
 </html>
