@@ -2,5 +2,7 @@
     "/js/app.js": "/js/app.js",
     "/js/welcome.js": "/js/welcome.js",
     "/js/header.js": "/js/header.js",
+    "/js/banner.js": "/js/banner.js",
+    "/css/banner.css": "/css/banner.css",
     "/css/header.css": "/css/header.css"
 }

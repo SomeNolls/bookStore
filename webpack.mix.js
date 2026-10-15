@@ -20,4 +20,8 @@ mix.js('resources/js/welcome.js', 'public/js')
 mix.js('resources/js/header.js', 'public/js')
     .react();
 
-mix.css('resources/css/header.css', 'public/css');
+mix.js('resources/js/banner.js', 'public/js')
+    .react();
+
+mix.css('resources/css/header.css', 'public/css')
+    .css('resources/css/banner.css', 'public/css');
