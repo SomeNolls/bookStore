@@ -1,6 +1,6 @@
 /* Site header — rendered by resources/js/components/Header.jsx */
 
-#site-header {
+[data-react="Header"] {
     min-height: 77px;
     background: #FFFFFF;
     border-bottom: 1px solid #E4E1D8;

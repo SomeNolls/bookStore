@@ -1,0 +1,21 @@
+import React from 'react';
+import { createRoot } from 'react-dom/client';
+import Header from './components/Header';
+import Banner from './components/Banner';
+import Genres from './components/Genres';
+import NewArrivals from './components/NewArrivals';
+import Features from './components/Features';
+import Newsletter from './components/Newsletter';
+import Footer from './components/Footer';
+
+const components = { Header, Banner, Genres, NewArrivals, Features, Newsletter, Footer };
+
+// Mounts every <div data-react="Name" data-props="{...}"> rendered by resources/views/partials/react.blade.php
+document.querySelectorAll('[data-react]').forEach((el) => {
+    const Component = components[el.dataset.react];
+
+    if (Component) {
+        const props = JSON.parse(el.dataset.props || '{}');
+        createRoot(el).render(<Component {...props} />);
+    }
+});

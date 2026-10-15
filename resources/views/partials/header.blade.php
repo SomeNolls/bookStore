@@ -7,7 +7,7 @@
         'links' => [
             ['label' => 'Books', 'url' => url('/books')],
             ['label' => 'Genres', 'url' => '#'],
-            ['label' => 'New Arrivals', 'url' => '#'],
+            ['label' => 'New Arrivals', 'url' => url('/') . '#new-arrivals'],
             ['label' => 'About Us', 'url' => '/about-us'],
             ['label' => 'Contact Us', 'url' => '/contact-us'],
         ],
@@ -29,9 +29,4 @@
     ];
 @endphp
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link href="{{ mix('css/header.css') }}" rel="stylesheet">
-
-<div id="site-header" data-props="{{ json_encode($headerProps) }}"></div>
-<script src="{{ mix('js/header.js') }}" defer></script>
+@include('partials.react', ['component' => 'Header', 'props' => $headerProps])

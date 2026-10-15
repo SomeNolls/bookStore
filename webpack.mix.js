@@ -17,11 +17,13 @@ mix.js('resources/js/app.js', 'public/js')
 mix.js('resources/js/welcome.js', 'public/js')
     .react();
 
-mix.js('resources/js/header.js', 'public/js')
+mix.js('resources/js/site.js', 'public/js')
     .react();
 
-mix.js('resources/js/banner.js', 'public/js')
-    .react();
-
-mix.css('resources/css/header.css', 'public/css')
-    .css('resources/css/banner.css', 'public/css');
+mix.styles([
+    'resources/css/base.css',
+    'resources/css/header.css',
+    'resources/css/banner.css',
+    'resources/css/sections.css',
+    'resources/css/footer.css',
+], 'public/css/site.css');

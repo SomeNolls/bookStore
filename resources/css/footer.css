@@ -1,0 +1,50 @@
+/* Site footer — rendered by resources/js/components/Footer.jsx */
+
+.site-footer,
+.site-footer * {
+    box-sizing: border-box;
+}
+
+.site-footer {
+    background: #14261E;
+    color: #C9D4CC;
+    font-family: 'Manrope', system-ui, sans-serif;
+}
+
+.site-footer__inner {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 48px 24px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 32px;
+    font-size: 14px;
+    line-height: 2;
+}
+
+.site-footer__brand,
+.site-footer__column {
+    display: flex;
+    flex-direction: column;
+}
+.site-footer__brand {
+    gap: 8px;
+}
+
+.site-footer__name {
+    font-family: 'DM Serif Display', Georgia, serif;
+    font-size: 22px;
+    color: #FFFFFF;
+}
+
+.site-footer__column strong {
+    color: #FFFFFF;
+}
+.site-footer__column a {
+    color: #C9D4CC;
+    text-decoration: none;
+}
+.site-footer__column a:hover {
+    color: #FFFFFF;
+    text-decoration: underline;
+}

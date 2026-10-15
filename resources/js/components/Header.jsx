@@ -51,7 +51,8 @@ export default function Header({
 
     const isActive = (url) => {
         try {
-            return new URL(url, window.location.origin).pathname === currentPath;
+            const link = new URL(url, window.location.origin);
+            return !link.hash && link.pathname === currentPath;
         } catch (e) {
             return false;
         }

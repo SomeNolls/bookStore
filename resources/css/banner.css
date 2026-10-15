@@ -1,6 +1,6 @@
 /* Homepage banner — rendered by resources/js/components/Banner.jsx */
 
-#site-banner {
+[data-react="Banner"] {
     min-height: 484px;
     background: #1F3A2E;
 }

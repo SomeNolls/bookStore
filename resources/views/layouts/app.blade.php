@@ -11,6 +11,7 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+    @include('partials.assets')
 
 </head>
 <body>
@@ -22,5 +23,7 @@
             @yield('content')
         </main>
     </div>
+
+    @include('partials.footer')
 </body>
 </html>

@@ -1,0 +1,17 @@
+/* Page basics from the Bookstore Redesign */
+
+body {
+    margin: 0;
+    background: #F7F6F2;
+    color: #1B1B1B;
+    font-family: 'Manrope', system-ui, sans-serif;
+}
+
+.site-sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+}
