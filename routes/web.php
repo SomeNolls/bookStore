@@ -17,7 +17,7 @@ use \App\Http\Controllers\ProfileController;
 
 Route::get('/', function () {
     return view('welcome', [
-        'latestBooks' => \App\Models\Book::latest()->take(10)->get(),
+        'latestBooks' => \App\Models\Book::latest()->take(5)->get(),
     ]);
 });
 

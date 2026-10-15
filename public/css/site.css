@@ -425,7 +425,7 @@ a.site-banner__cover:hover {
     }
 }
 
-/* Homepage sections — Genres, NewArrivals, Features, Newsletter (resources/js/components) */
+/* Homepage sections — Genres, BookList, Features, Newsletter (resources/js/components) */
 
 .site-section,
 .site-section *,
@@ -482,38 +482,38 @@ a.site-banner__cover:hover {
     color: #FFFFFF;
 }
 
-/* New arrivals */
-.site-arrivals {
+/* Book list */
+.site-books {
     scroll-margin-top: 24px;
 }
-.site-arrivals__head {
+.site-books__head {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: baseline;
     gap: 12px;
 }
-.site-arrivals__all {
+.site-books__all {
     color: #1F3A2E;
     font-size: 15px;
     font-weight: 600;
 }
-.site-arrivals__all:hover {
+.site-books__all:hover {
     color: #122219;
 }
-.site-arrivals__grid {
+.site-books__grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 28px;
 }
-.site-arrivals__card {
+.site-book__card {
     display: flex;
     flex-direction: column;
     gap: 12px;
     color: #1B1B1B;
     text-decoration: none;
 }
-.site-arrivals__cover {
+.site-book__cover {
     aspect-ratio: 2 / 3;
     overflow: hidden;
     padding: 20px;
@@ -523,39 +523,39 @@ a.site-banner__cover:hover {
     box-shadow: 0 10px 24px rgba(0, 0, 0, 0.15);
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
-.site-arrivals__cover img {
+.site-book__cover img {
     width: calc(100% + 40px);
     height: calc(100% + 40px);
     margin: -20px;
     object-fit: cover;
     display: block;
 }
-.site-arrivals__card:hover .site-arrivals__cover {
+.site-book__card:hover .site-book__cover {
     transform: translateY(-4px);
     box-shadow: 0 16px 32px rgba(0, 0, 0, 0.2);
 }
-.site-arrivals__cover-title {
+.site-book__cover-title {
     font-family: 'DM Serif Display', Georgia, serif;
     font-size: 22px;
     line-height: 1.15;
     overflow-wrap: break-word;
 }
-.site-arrivals__info {
+.site-books__info {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     gap: 4px;
 }
-.site-arrivals__title {
+.site-books__title {
     font-size: 16px;
     font-weight: 700;
 }
-.site-arrivals__description {
+.site-books__description {
     font-size: 14px;
     line-height: 1.5;
     color: #5A5A55;
 }
-.site-arrivals__badge {
+.site-books__badge {
     margin-top: 6px;
     padding: 4px 10px;
     border-radius: 12px;
@@ -564,11 +564,11 @@ a.site-banner__cover:hover {
     font-size: 12px;
     font-weight: 600;
 }
-.site-arrivals__badge.is-out {
+.site-books__badge.is-out {
     background: #F6E3D9;
     color: #9A3412;
 }
-.site-arrivals__empty {
+.site-books__empty {
     margin: 0;
     color: #5A5A55;
 }
@@ -677,7 +677,7 @@ a.site-banner__cover:hover {
     .site-section__title {
         font-size: 28px;
     }
-    .site-arrivals__grid {
+    .site-books__grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 20px;
     }

@@ -3,12 +3,12 @@ import { createRoot } from 'react-dom/client';
 import Header from './components/Header';
 import Banner from './components/Banner';
 import Genres from './components/Genres';
-import NewArrivals from './components/NewArrivals';
+import BookList from './components/BookList';
 import Features from './components/Features';
 import Newsletter from './components/Newsletter';
 import Footer from './components/Footer';
 
-const components = { Header, Banner, Genres, NewArrivals, Features, Newsletter, Footer };
+const components = { Header, Banner, Genres, BookList, Features, Newsletter, Footer };
 
 // Mounts every <div data-react="Name" data-props="{...}"> rendered by resources/views/partials/react.blade.php
 document.querySelectorAll('[data-react]').forEach((el) => {
@@ -16,6 +16,7 @@ document.querySelectorAll('[data-react]').forEach((el) => {
 
     if (Component) {
         const props = JSON.parse(el.dataset.props || '{}');
+        el.removeAttribute('data-props');
         createRoot(el).render(<Component {...props} />);
     }
 });

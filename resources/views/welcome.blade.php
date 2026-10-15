@@ -23,11 +23,14 @@
                     ]),
             ]])
 
-            @include('partials.react', ['component' => 'NewArrivals', 'props' => [
+            @include('partials.react', ['component' => 'BookList', 'props' => [
+                'title' => 'New arrivals',
+                'id' => 'new-arrivals',
                 'viewAllUrl' => url('/books'),
                 'books' => $latestBooks->map(fn ($book) => [
                     'title' => $book->title,
-                    'description' => \Illuminate\Support\Str::limit($book->description, 80),
+                    'author' => $book->author,
+                    'price' => (float) $book->price,
                     'img' => $book->img ? asset('storage/' . $book->img) : null,
                     'url' => url('/b/' . $book->id),
                     'available' => (int) $book->number,

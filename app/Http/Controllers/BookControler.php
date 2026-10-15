@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Book;
 use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Facades\Image;
 
 
@@ -19,21 +20,31 @@ class BookControler extends Controller
     {
         $data = request()->validate([
             'title' => 'required',
+            'author' => 'required',
+            'genre' => 'required',
             'description' => 'required',
-            'number' => 'required',
+            'stock' => ['required', 'integer', 'min:0'],
+            'price' => ['required', 'numeric', 'min:0'],
+            'forRent' => ['required', 'integer', 'min:0'],
+            'eBook' => ['required', 'boolean'],
             'img' => ['required', 'image']
         ]);
 
         $imagePath = request('img')->store('uploads', 'public');
 
-        $image = Image::make(public_path("storage/{$imagePath}"))->fit(230, 230);
+        $image = Image::make(Storage::disk('public')->path($imagePath));
         $image->save();
 
         \App\Models\Book::create([
             'title' => $data['title'],
+            'author' => $data['author'],
+            'genre' => $data['genre'],
             'description' => $data['description'],
-            'number' => $data['number'],
-            'stock' => $data['number'],
+            'number' => $data['stock'],
+            'stock' => $data['stock'],
+            'price' => $data['price'],
+            'forRent' => $data['forRent'],
+            'eBook' => $data['eBook'],
             'img' =>$imagePath
         ]);
 

@@ -115,6 +115,95 @@ function Banner(_ref2) {
 
 /***/ }),
 
+/***/ "./resources/js/components/BookList.jsx":
+/*!**********************************************!*\
+  !*** ./resources/js/components/BookList.jsx ***!
+  \**********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ BookList)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+function BookCard(_ref) {
+  var book = _ref.book;
+  var available = book.available > 0;
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("a", {
+    href: book.url,
+    className: "site-book__card",
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+      className: "site-book__cover",
+      children: book.img ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("img", {
+        src: book.img,
+        alt: "",
+        loading: "lazy"
+      }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
+        className: "site-book__cover-title",
+        children: book.title
+      })
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+      className: "site-books__info",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
+        className: "site-books__title",
+        children: book.title
+      }), book.author && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
+        className: "site-books__description",
+        children: book.author
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
+          children: available ? "".concat(book.price, "$") : ''
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
+          className: 'site-books__badge' + (available ? '' : ' is-out'),
+          children: available ? "".concat(book.available, " available") : 'Out of stock'
+        })]
+      })]
+    })]
+  });
+}
+function BookList(_ref2) {
+  var _ref2$title = _ref2.title,
+    title = _ref2$title === void 0 ? 'Books' : _ref2$title,
+    id = _ref2.id,
+    viewAllUrl = _ref2.viewAllUrl,
+    _ref2$books = _ref2.books,
+    books = _ref2$books === void 0 ? [] : _ref2$books,
+    _ref2$emptyText = _ref2.emptyText,
+    emptyText = _ref2$emptyText === void 0 ? 'No books have been added yet.' : _ref2$emptyText;
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("section", {
+    className: "site-section site-books",
+    id: id,
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+      className: "site-books__head",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h2", {
+        className: "site-section__title",
+        children: title
+      }), viewAllUrl && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("a", {
+        href: viewAllUrl,
+        className: "site-books__all",
+        children: "View all \u2192"
+      })]
+    }), books.length > 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+      className: "site-books__grid",
+      children: books.map(function (book) {
+        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(BookCard, {
+          book: book
+        }, book.url);
+      })
+    }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
+      className: "site-books__empty",
+      children: emptyText
+    })]
+  });
+}
+
+/***/ }),
+
 /***/ "./resources/js/components/Features.jsx":
 /*!**********************************************!*\
   !*** ./resources/js/components/Features.jsx ***!
@@ -510,94 +599,6 @@ function Header(_ref) {
         })]
       })]
     })
-  });
-}
-
-/***/ }),
-
-/***/ "./resources/js/components/NewArrivals.jsx":
-/*!*************************************************!*\
-  !*** ./resources/js/components/NewArrivals.jsx ***!
-  \*************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ NewArrivals)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-
-
-var COVER_COLORS = ['#264653', '#C2410C', '#6B4E9B', '#1F3A2E', '#8A5A2B'];
-function BookCard(_ref) {
-  var book = _ref.book,
-    index = _ref.index;
-  var available = book.available > 0;
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("a", {
-    href: book.url,
-    className: "site-arrivals__card",
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-      className: "site-arrivals__cover",
-      style: {
-        background: COVER_COLORS[index % COVER_COLORS.length]
-      },
-      children: book.img ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("img", {
-        src: book.img,
-        alt: "",
-        loading: "lazy"
-      }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
-        className: "site-arrivals__cover-title",
-        children: book.title
-      })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
-      className: "site-arrivals__info",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
-        className: "site-arrivals__title",
-        children: book.title
-      }), book.description && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
-        className: "site-arrivals__description",
-        children: book.description
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
-        className: 'site-arrivals__badge' + (available ? '' : ' is-out'),
-        children: available ? "".concat(book.available, " available") : 'Out of stock'
-      })]
-    })]
-  });
-}
-function NewArrivals(_ref2) {
-  var _ref2$title = _ref2.title,
-    title = _ref2$title === void 0 ? 'New arrivals' : _ref2$title,
-    viewAllUrl = _ref2.viewAllUrl,
-    _ref2$books = _ref2.books,
-    books = _ref2$books === void 0 ? [] : _ref2$books;
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("section", {
-    className: "site-section site-arrivals",
-    id: "new-arrivals",
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
-      className: "site-arrivals__head",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h2", {
-        className: "site-section__title",
-        children: title
-      }), viewAllUrl && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("a", {
-        href: viewAllUrl,
-        className: "site-arrivals__all",
-        children: "View all \u2192"
-      })]
-    }), books.length > 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-      className: "site-arrivals__grid",
-      children: books.map(function (book, i) {
-        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(BookCard, {
-          book: book,
-          index: i
-        }, book.url);
-      })
-    }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
-      className: "site-arrivals__empty",
-      children: "No books have been added yet."
-    })]
   });
 }
 
@@ -34914,7 +34915,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_Header__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/Header */ "./resources/js/components/Header.jsx");
 /* harmony import */ var _components_Banner__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/Banner */ "./resources/js/components/Banner.jsx");
 /* harmony import */ var _components_Genres__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/Genres */ "./resources/js/components/Genres.jsx");
-/* harmony import */ var _components_NewArrivals__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/NewArrivals */ "./resources/js/components/NewArrivals.jsx");
+/* harmony import */ var _components_BookList__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/BookList */ "./resources/js/components/BookList.jsx");
 /* harmony import */ var _components_Features__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/Features */ "./resources/js/components/Features.jsx");
 /* harmony import */ var _components_Newsletter__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/Newsletter */ "./resources/js/components/Newsletter.jsx");
 /* harmony import */ var _components_Footer__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/Footer */ "./resources/js/components/Footer.jsx");
@@ -34936,7 +34937,7 @@ var components = {
   Header: _components_Header__WEBPACK_IMPORTED_MODULE_2__["default"],
   Banner: _components_Banner__WEBPACK_IMPORTED_MODULE_3__["default"],
   Genres: _components_Genres__WEBPACK_IMPORTED_MODULE_4__["default"],
-  NewArrivals: _components_NewArrivals__WEBPACK_IMPORTED_MODULE_5__["default"],
+  BookList: _components_BookList__WEBPACK_IMPORTED_MODULE_5__["default"],
   Features: _components_Features__WEBPACK_IMPORTED_MODULE_6__["default"],
   Newsletter: _components_Newsletter__WEBPACK_IMPORTED_MODULE_7__["default"],
   Footer: _components_Footer__WEBPACK_IMPORTED_MODULE_8__["default"]
@@ -34947,6 +34948,7 @@ document.querySelectorAll('[data-react]').forEach(function (el) {
   var Component = components[el.dataset.react];
   if (Component) {
     var props = JSON.parse(el.dataset.props || '{}');
+    el.removeAttribute('data-props');
     (0,react_dom_client__WEBPACK_IMPORTED_MODULE_1__.createRoot)(el).render(/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(Component, _objectSpread({}, props)));
   }
 });
