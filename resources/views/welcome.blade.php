@@ -16,10 +16,10 @@
 
         <main>
             @include('partials.react', ['component' => 'Genres', 'props' => [
-                'genres' => collect(['All', 'Fiction', 'Classics', 'Fantasy', 'Mystery & Thriller', 'Science', 'History', 'Children'])
+                'genres' => collect(['All', ...\App\Models\Book::GENRES])
                     ->map(fn ($name) => [
                         'name' => $name,
-                        'url' => $name === 'All' ? url('/books') : '#',
+                        'url' => $name === 'All' ? url('/books') : url('/books') . '?' . http_build_query(['genre' => $name]),
                     ]),
             ]])
 
@@ -27,14 +27,7 @@
                 'title' => 'New arrivals',
                 'id' => 'new-arrivals',
                 'viewAllUrl' => url('/books'),
-                'books' => $latestBooks->map(fn ($book) => [
-                    'title' => $book->title,
-                    'author' => $book->author,
-                    'price' => (float) $book->price,
-                    'img' => $book->img ? asset('storage/' . $book->img) : null,
-                    'url' => url('/b/' . $book->id),
-                    'available' => (int) $book->number,
-                ]),
+                'books' => $latestBooks->map->toCard(),
             ]])
 
             @include('partials.react', ['component' => 'Features', 'props' => [

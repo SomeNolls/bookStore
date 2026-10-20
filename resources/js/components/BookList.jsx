@@ -1,6 +1,6 @@
 import React from 'react';
 
-function BookCard({ book }) {
+export function BookCard({ book }) {
     const available = book.available > 0;
     return (
         <a href={book.url} className="site-book__card">
@@ -13,7 +13,11 @@ function BookCard({ book }) {
             </div>
             <div className="site-books__info">
                 <span className="site-books__title">{book.title}</span>
-                {book.author && <span className="site-books__description">{book.author}</span>}
+                {(book.author || book.genre) && (
+                    <span className="site-books__description">
+                        {[book.author, book.genre].filter(Boolean).join(' · ')}
+                    </span>
+                )}
                 <div>
                     <span>
 

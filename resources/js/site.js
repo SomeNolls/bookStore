@@ -7,8 +7,10 @@ import BookList from './components/BookList';
 import Features from './components/Features';
 import Newsletter from './components/Newsletter';
 import Footer from './components/Footer';
+import Catalogue from './components/Catalogue';
+import BookDetail from './components/BookDetail';
 
-const components = { Header, Banner, Genres, BookList, Features, Newsletter, Footer };
+const components = { Header, Banner, Genres, BookList, Features, Newsletter, Footer, Catalogue, BookDetail };
 
 // Mounts every <div data-react="Name" data-props="{...}"> rendered by resources/views/partials/react.blade.php
 document.querySelectorAll('[data-react]').forEach((el) => {

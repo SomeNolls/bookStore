@@ -25,5 +25,7 @@ mix.styles([
     'resources/css/header.css',
     'resources/css/banner.css',
     'resources/css/sections.css',
+    'resources/css/catalogue.css',
+    'resources/css/book.css',
     'resources/css/footer.css',
 ], 'public/css/site.css');
