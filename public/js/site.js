@@ -2581,6 +2581,77 @@ function Checkout(_ref) {
 
 /***/ }),
 
+/***/ "./resources/js/components/ConfirmPassword.jsx":
+/*!*****************************************************!*\
+  !*** ./resources/js/components/ConfirmPassword.jsx ***!
+  \*****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ConfirmPassword)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _AuthShell__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./AuthShell */ "./resources/js/components/AuthShell.jsx");
+/* harmony import */ var _Field__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Field */ "./resources/js/components/Field.jsx");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+
+function ConfirmPassword(_ref) {
+  var homeUrl = _ref.homeUrl,
+    action = _ref.action,
+    csrfToken = _ref.csrfToken,
+    _ref$forgotUrl = _ref.forgotUrl,
+    forgotUrl = _ref$forgotUrl === void 0 ? null : _ref$forgotUrl,
+    _ref$errors = _ref.errors,
+    errors = _ref$errors === void 0 ? {} : _ref$errors;
+  var fieldProps = {
+    errors: errors,
+    idPrefix: 'confirm'
+  };
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_AuthShell__WEBPACK_IMPORTED_MODULE_1__["default"], {
+    homeUrl: homeUrl,
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("form", {
+      method: "post",
+      action: action,
+      className: "site-auth__card",
+      noValidate: true,
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+        type: "hidden",
+        name: "_token",
+        value: csrfToken
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h1", {
+        children: "Confirm password"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
+        className: "site-auth__intro",
+        children: "Please confirm your password before continuing."
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_Field__WEBPACK_IMPORTED_MODULE_2__["default"], _objectSpread({
+        name: "password",
+        label: "Password",
+        type: "password",
+        autoComplete: "current-password",
+        labelAside: forgotUrl && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("a", {
+          href: forgotUrl,
+          children: "Forgot password?"
+        })
+      }, fieldProps)), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
+        type: "submit",
+        className: "site-auth__submit",
+        children: "Confirm password"
+      })]
+    })
+  });
+}
+
+/***/ }),
+
 /***/ "./resources/js/components/Features.jsx":
 /*!**********************************************!*\
   !*** ./resources/js/components/Features.jsx ***!
@@ -2902,6 +2973,87 @@ function Footer(_ref) {
               children: link.label
             }, link.label);
           })
+        })]
+      })]
+    })
+  });
+}
+
+/***/ }),
+
+/***/ "./resources/js/components/ForgotPassword.jsx":
+/*!****************************************************!*\
+  !*** ./resources/js/components/ForgotPassword.jsx ***!
+  \****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ForgotPassword)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _AuthShell__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./AuthShell */ "./resources/js/components/AuthShell.jsx");
+/* harmony import */ var _Field__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Field */ "./resources/js/components/Field.jsx");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+
+function ForgotPassword(_ref) {
+  var homeUrl = _ref.homeUrl,
+    action = _ref.action,
+    csrfToken = _ref.csrfToken,
+    loginUrl = _ref.loginUrl,
+    _ref$values = _ref.values,
+    values = _ref$values === void 0 ? {} : _ref$values,
+    _ref$errors = _ref.errors,
+    errors = _ref$errors === void 0 ? {} : _ref$errors,
+    _ref$status = _ref.status,
+    status = _ref$status === void 0 ? null : _ref$status;
+  var fieldProps = {
+    values: values,
+    errors: errors,
+    idPrefix: 'forgot'
+  };
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_AuthShell__WEBPACK_IMPORTED_MODULE_1__["default"], {
+    homeUrl: homeUrl,
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("form", {
+      method: "post",
+      action: action,
+      className: "site-auth__card",
+      noValidate: true,
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+        type: "hidden",
+        name: "_token",
+        value: csrfToken
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h1", {
+        children: "Reset password"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
+        className: "site-auth__intro",
+        children: "Enter your account's email and we'll send you a link to choose a new password."
+      }), status && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
+        className: "site-auth__status",
+        role: "status",
+        children: status
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_Field__WEBPACK_IMPORTED_MODULE_2__["default"], _objectSpread({
+        name: "email",
+        label: "Email",
+        type: "email",
+        autoComplete: "email"
+      }, fieldProps)), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
+        type: "submit",
+        className: "site-auth__submit",
+        children: "Send reset link"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("p", {
+        className: "site-auth__switch",
+        children: ["Remembered it? ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("a", {
+          href: loginUrl,
+          children: "Sign in"
         })]
       })]
     })
@@ -3598,6 +3750,93 @@ function Register(_ref) {
           href: loginUrl,
           children: "Sign in"
         })]
+      })]
+    })
+  });
+}
+
+/***/ }),
+
+/***/ "./resources/js/components/ResetPassword.jsx":
+/*!***************************************************!*\
+  !*** ./resources/js/components/ResetPassword.jsx ***!
+  \***************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ ResetPassword)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _AuthShell__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./AuthShell */ "./resources/js/components/AuthShell.jsx");
+/* harmony import */ var _Field__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Field */ "./resources/js/components/Field.jsx");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+
+function ResetPassword(_ref) {
+  var homeUrl = _ref.homeUrl,
+    action = _ref.action,
+    csrfToken = _ref.csrfToken,
+    token = _ref.token,
+    loginUrl = _ref.loginUrl,
+    _ref$values = _ref.values,
+    values = _ref$values === void 0 ? {} : _ref$values,
+    _ref$errors = _ref.errors,
+    errors = _ref$errors === void 0 ? {} : _ref$errors;
+  var fieldProps = {
+    values: values,
+    errors: errors,
+    idPrefix: 'reset'
+  };
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_AuthShell__WEBPACK_IMPORTED_MODULE_1__["default"], {
+    homeUrl: homeUrl,
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("form", {
+      method: "post",
+      action: action,
+      className: "site-auth__card",
+      noValidate: true,
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+        type: "hidden",
+        name: "_token",
+        value: csrfToken
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+        type: "hidden",
+        name: "token",
+        value: token
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h1", {
+        children: "Choose a new password"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_Field__WEBPACK_IMPORTED_MODULE_2__["default"], _objectSpread({
+        name: "email",
+        label: "Email",
+        type: "email",
+        autoComplete: "email"
+      }, fieldProps)), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_Field__WEBPACK_IMPORTED_MODULE_2__["default"], _objectSpread({
+        name: "password",
+        label: "New password",
+        type: "password",
+        autoComplete: "new-password"
+      }, fieldProps)), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_Field__WEBPACK_IMPORTED_MODULE_2__["default"], _objectSpread({
+        name: "password_confirmation",
+        label: "Confirm new password",
+        type: "password",
+        autoComplete: "new-password"
+      }, fieldProps)), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
+        type: "submit",
+        className: "site-auth__submit",
+        children: "Reset password"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
+        className: "site-auth__switch",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("a", {
+          href: loginUrl,
+          children: "Back to sign in"
+        })
       })]
     })
   });
@@ -37983,12 +38222,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_OrderConfirmed__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./components/OrderConfirmed */ "./resources/js/components/OrderConfirmed.jsx");
 /* harmony import */ var _components_Login__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./components/Login */ "./resources/js/components/Login.jsx");
 /* harmony import */ var _components_Register__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./components/Register */ "./resources/js/components/Register.jsx");
-/* harmony import */ var _components_Account__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./components/Account */ "./resources/js/components/Account.jsx");
-/* harmony import */ var _components_Admin__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./components/Admin */ "./resources/js/components/Admin.jsx");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _components_ForgotPassword__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./components/ForgotPassword */ "./resources/js/components/ForgotPassword.jsx");
+/* harmony import */ var _components_ResetPassword__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./components/ResetPassword */ "./resources/js/components/ResetPassword.jsx");
+/* harmony import */ var _components_ConfirmPassword__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./components/ConfirmPassword */ "./resources/js/components/ConfirmPassword.jsx");
+/* harmony import */ var _components_Account__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./components/Account */ "./resources/js/components/Account.jsx");
+/* harmony import */ var _components_Admin__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./components/Admin */ "./resources/js/components/Admin.jsx");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
 
 
 
@@ -38023,8 +38268,11 @@ var components = {
   OrderConfirmed: _components_OrderConfirmed__WEBPACK_IMPORTED_MODULE_13__["default"],
   Login: _components_Login__WEBPACK_IMPORTED_MODULE_14__["default"],
   Register: _components_Register__WEBPACK_IMPORTED_MODULE_15__["default"],
-  Account: _components_Account__WEBPACK_IMPORTED_MODULE_16__["default"],
-  Admin: _components_Admin__WEBPACK_IMPORTED_MODULE_17__["default"]
+  ForgotPassword: _components_ForgotPassword__WEBPACK_IMPORTED_MODULE_16__["default"],
+  ResetPassword: _components_ResetPassword__WEBPACK_IMPORTED_MODULE_17__["default"],
+  ConfirmPassword: _components_ConfirmPassword__WEBPACK_IMPORTED_MODULE_18__["default"],
+  Account: _components_Account__WEBPACK_IMPORTED_MODULE_19__["default"],
+  Admin: _components_Admin__WEBPACK_IMPORTED_MODULE_20__["default"]
 };
 
 // Mounts every <div data-react="Name" data-props="{...}"> rendered by resources/views/partials/react.blade.php
@@ -38033,7 +38281,7 @@ document.querySelectorAll('[data-react]').forEach(function (el) {
   if (Component) {
     var props = JSON.parse(el.dataset.props || '{}');
     el.removeAttribute('data-props');
-    (0,react_dom_client__WEBPACK_IMPORTED_MODULE_1__.createRoot)(el).render(/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_18__.jsx)(Component, _objectSpread({}, props)));
+    (0,react_dom_client__WEBPACK_IMPORTED_MODULE_1__.createRoot)(el).render(/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_21__.jsx)(Component, _objectSpread({}, props)));
   }
 });
 })();

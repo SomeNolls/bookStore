@@ -1723,6 +1723,12 @@ body {
 .site-auth__card p {
     margin: 0;
 }
+.site-auth__intro {
+    color: #5A5A55;
+    font-size: 15px;
+    line-height: 1.6;
+    text-align: center;
+}
 .site-auth__card .site-field__label-row a {
     font-size: 13px;
     font-weight: 600;

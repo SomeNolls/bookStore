@@ -14,10 +14,13 @@ import Checkout from './components/Checkout';
 import OrderConfirmed from './components/OrderConfirmed';
 import Login from './components/Login';
 import Register from './components/Register';
+import ForgotPassword from './components/ForgotPassword';
+import ResetPassword from './components/ResetPassword';
+import ConfirmPassword from './components/ConfirmPassword';
 import Account from './components/Account';
 import Admin from './components/Admin';
 
-const components = { Header, Banner, Genres, BookList, Features, HowItWorks, Footer, Catalogue, BookDetail, Cart, Checkout, OrderConfirmed, Login, Register, Account, Admin };
+const components = { Header, Banner, Genres, BookList, Features, HowItWorks, Footer, Catalogue, BookDetail, Cart, Checkout, OrderConfirmed, Login, Register, ForgotPassword, ResetPassword, ConfirmPassword, Account, Admin };
 
 // Mounts every <div data-react="Name" data-props="{...}"> rendered by resources/views/partials/react.blade.php
 document.querySelectorAll('[data-react]').forEach((el) => {
