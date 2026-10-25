@@ -1,11 +1,8 @@
 @include('partials.react', ['component' => 'Banner', 'props' => [
-    'eyebrow' => 'Your neighbourhood bookstore, online',
-    'title' => "Find the book you didn't know you needed.",
-    'text' => 'Browse by genre, discover new arrivals, and order online — or reserve and pick up in store.',
+    'title' => "Rent the books you love, return them when you're done.",
+    'text' => 'Browse by genre, discover new arrivals, and get books delivered straight to your door.',
+    'image' => asset('images/bannerImg.jpg'),
+    'imageAlt' => 'A stack of books on a wooden table',
     'primaryAction' => ['label' => 'Browse the catalogue', 'url' => url('/books')],
-    'secondaryAction' => ['label' => 'See new arrivals', 'url' => url('/') . '#new-arrivals'],
-    'books' => $books->take(3)->map(fn ($book) => [
-        'title' => $book->title,
-        'url' => url('/b/' . $book->id),
-    ])->values(),
+    'secondaryAction' => ['label' => 'How it works', 'url' => '#how'],
 ]])

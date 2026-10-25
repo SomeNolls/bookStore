@@ -33,7 +33,9 @@ class Book extends Model
     {
         return collect(self::GENRES)
             ->merge(self::whereNotNull('genre')->distinct()->pluck('genre'))
-            ->unique()
+            ->map(fn ($genre) => trim($genre))
+            ->filter()
+            ->unique(fn ($genre) => mb_strtolower($genre))
             ->values();
     }
 
@@ -46,6 +48,7 @@ class Book extends Model
             'title' => $this->title,
             'author' => $this->author,
             'price' => (float) $this->price,
+            'rentPrice' => (float) $this->rentPrice,
             'img' => $this->img ? asset('storage/' . $this->img) : null,
             'url' => url('/b/' . $this->id),
             'available' => (int) $this->number,

@@ -7,15 +7,21 @@
         'book' => $book->toCard() + [
             'genre' => $book->genre,
             'description' => $book->description,
-            'eBook' => (bool) $book->eBook,
             'added' => optional($book->created_at)->format('j M Y'),
+            'forRent' => (int) $book->forRent,
         ],
         'catalogueUrl' => url('/books'),
         'genreUrl' => $book->genre ? url('/books') . '?' . http_build_query(['genre' => $book->genre]) : null,
         'authorUrl' => $book->author ? url('/books') . '?' . http_build_query(['search' => $book->author]) : null,
-        // Renting needs a signed-in user (RentController reads auth()->user()).
+        'cart' => [
+            'action' => route('cart.store'),
+            'csrfToken' => csrf_token(),
+            'bookId' => $book->id,
+        ],
+        // Renting needs a signed-in user, since rentals are kept on the account.
         'rent' => auth()->check() ? [
-            'action' => url('/rent'),
+            'action' => route('cart.rent'),
+            'months' => \App\Support\Cart::RENTAL_MONTHS,
             'csrfToken' => csrf_token(),
             'bookId' => $book->id,
         ] : null,

@@ -18,11 +18,8 @@ export function BookCard({ book }) {
                         {[book.author, book.genre].filter(Boolean).join(' · ')}
                     </span>
                 )}
-                <div>
-                    <span>
-
-                         {available ? `${book.price}$` : ''}
-                    </span>
+                <div className="site-books__meta">
+                    <span className="site-books__price">{book.price.toFixed(2)}$</span>
                     <span className={'site-books__badge' + (available ? '' : ' is-out')}>
                         {available ? `${book.available} available` : 'Out of stock'}
                     </span>

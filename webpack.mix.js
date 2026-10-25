@@ -14,9 +14,6 @@ const mix = require('laravel-mix');
 mix.js('resources/js/app.js', 'public/js')
     .vue();
 
-mix.js('resources/js/welcome.js', 'public/js')
-    .react();
-
 mix.js('resources/js/site.js', 'public/js')
     .react();
 
@@ -27,5 +24,8 @@ mix.styles([
     'resources/css/sections.css',
     'resources/css/catalogue.css',
     'resources/css/book.css',
+    'resources/css/cart.css',
+    'resources/css/account.css',
+    'resources/css/admin.css',
     'resources/css/footer.css',
 ], 'public/css/site.css');

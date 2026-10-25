@@ -1,0 +1,349 @@
+/* Sign in, register and My account — rendered by resources/js/components/AuthShell.jsx, Login.jsx, Register.jsx and Account.jsx */
+
+/* Sign in / register: a centred card on the page background */
+.site-auth,
+.site-auth * {
+    box-sizing: border-box;
+}
+
+.site-auth {
+    min-height: 100vh;
+    padding: 48px 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 28px;
+}
+.site-auth a {
+    color: #1F3A2E;
+}
+.site-auth a:hover {
+    color: #122219;
+}
+
+.site-auth .site-auth__logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #111111;
+    text-decoration: none;
+    font-family: 'DM Serif Display', Georgia, serif;
+    font-size: 26px;
+}
+
+.site-auth__card {
+    width: 100%;
+    max-width: 420px;
+    margin: 0;
+    padding: 36px 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    border: 1px solid #E4E1D8;
+    border-radius: 18px;
+    background: #FFFFFF;
+    box-shadow: 0 12px 32px rgba(20, 38, 30, 0.06);
+}
+.site-auth__card--wide {
+    max-width: 440px;
+    gap: 16px;
+}
+.site-auth__card h1 {
+    margin: 0;
+    font-family: 'DM Serif Display', Georgia, serif;
+    font-weight: 400;
+    font-size: 34px;
+    text-align: center;
+}
+.site-auth__card p {
+    margin: 0;
+}
+.site-auth__card .site-field__label-row a {
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.site-auth__status {
+    padding: 10px 12px;
+    border-radius: 10px;
+    background: #E3ECE6;
+    color: #1F3A2E;
+    font-size: 14px;
+}
+
+.site-auth__check {
+    min-height: 32px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+}
+.site-auth__check input {
+    width: 18px;
+    height: 18px;
+    margin: 0;
+    flex: none;
+    accent-color: #1F3A2E;
+}
+
+.site-auth__submit {
+    height: 50px;
+    border: 0;
+    border-radius: 25px;
+    background: #1F3A2E;
+    color: #FFFFFF;
+    font: inherit;
+    font-weight: 700;
+    cursor: pointer;
+}
+.site-auth__submit:hover {
+    background: #122219;
+}
+
+.site-auth__switch {
+    color: #5A5A55;
+    font-size: 14px;
+    text-align: center;
+}
+.site-auth__switch a {
+    font-weight: 700;
+}
+
+.site-auth__back {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+/* My account */
+.site-account__intro {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+.site-account__intro p {
+    margin: 0;
+}
+
+.site-account__nav {
+    flex: 1 1 220px;
+    max-width: 260px;
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+.site-cart .site-account__nav a,
+.site-account__nav button {
+    min-height: 44px;
+    padding: 0 14px;
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+    color: #3A3A3A;
+    font-size: 15px;
+    font-weight: 500;
+    text-decoration: none;
+}
+.site-cart .site-account__nav a:hover {
+    background: #F7F6F2;
+}
+.site-cart .site-account__nav a[aria-current="page"] {
+    background: #E3ECE6;
+    color: #1F3A2E;
+    font-weight: 700;
+}
+.site-account__nav form {
+    margin: 6px 0 0;
+    padding-top: 6px;
+    border-top: 1px solid #EEEBE3;
+}
+.site-account__nav button {
+    width: 100%;
+    border: 0;
+    background: transparent;
+    color: #9A3412;
+    font: inherit;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.site-account__content {
+    flex: 999 1 560px;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.site-account__panel {
+    margin: 0;
+    padding: 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+.site-account__panel h2 {
+    font-size: 22px;
+}
+
+/* Profile and password fields: one under the other, a third of the panel wide. */
+.site-account__fields {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+.site-account__fields .site-field {
+    width: 33.333%;
+    min-width: 260px;
+}
+
+.site-account__empty {
+    padding: 24px 0 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+}
+.site-account__empty h3 {
+    margin: 0;
+    font-size: 18px;
+}
+.site-account__empty p {
+    margin: 0;
+}
+
+.site-account__table-wrap {
+    overflow-x: auto;
+}
+.site-account__table {
+    width: 100%;
+    min-width: 620px;
+    border-collapse: collapse;
+    font-size: 15px;
+}
+.site-account__table th {
+    padding: 10px 8px;
+    border-bottom: 1px solid #E4E1D8;
+    color: #5A5A55;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-align: left;
+    text-transform: uppercase;
+}
+.site-account__table td {
+    padding: 16px 8px;
+    border-bottom: 1px solid #EEEBE3;
+    vertical-align: middle;
+}
+.site-account__table td strong {
+    font-weight: 700;
+}
+.site-account__actions {
+    text-align: right;
+}
+.site-account__actions form {
+    margin: 0;
+}
+.site-account__link {
+    min-height: 32px;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: #1F3A2E;
+    font: inherit;
+    font-weight: 600;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.site-account__badge {
+    padding: 5px 12px;
+    display: inline-block;
+    border-radius: 14px;
+    font-size: 13px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+.site-account__badge.is-pending {
+    background: #F8EBC8;
+    color: #7A4B00;
+}
+.site-account__badge.is-shipped {
+    background: #DDEAF5;
+    color: #1E4E79;
+}
+.site-account__badge.is-delivered {
+    background: #E3ECE6;
+    color: #1F3A2E;
+}
+.site-account__badge.is-completed {
+    background: #1F3A2E;
+    color: #FFFFFF;
+}
+.site-account__badge.is-cancelled {
+    background: #F6E3D8;
+    color: #7A3410;
+}
+
+.site-account__details td {
+    background: #FAF9F6;
+}
+.site-account__details-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+    gap: 24px;
+}
+.site-account__details-grid > div {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.site-account__details dl {
+    margin: 0;
+    font-size: 14px;
+}
+.site-account__details dt {
+    color: #5A5A55;
+}
+.site-account__details dd {
+    margin: 2px 0 10px;
+    font-weight: 600;
+}
+
+.site-account__save {
+    display: inline-flex;
+}
+.site-account__secondary {
+    height: 48px;
+    padding: 0 24px;
+    border: 1px solid #1F3A2E;
+    border-radius: 24px;
+    background: transparent;
+    color: #1F3A2E;
+    font: inherit;
+    font-weight: 700;
+    cursor: pointer;
+}
+.site-account__secondary:hover {
+    background: #E3ECE6;
+}
+
+@media (max-width: 640px) {
+    .site-auth__card {
+        padding: 28px 20px;
+    }
+    .site-account__nav {
+        max-width: none;
+    }
+    .site-account__panel {
+        padding: 20px;
+    }
+    .site-account__fields .site-field {
+        width: 100%;
+        min-width: 0;
+    }
+    .site-account__details-grid {
+        grid-template-columns: 1fr;
+    }
+}

@@ -17,7 +17,10 @@ return new class extends Migration
             $table->id();
             $table->bigInteger('user_id');
             $table->bigInteger('book_id');
-            $table->date('returnDate');
+            $table->foreignId('order_id')->nullable()->constrained()->nullOnDelete();
+            $table->unsignedTinyInteger('months')->nullable();
+            // Stays empty until the rental's order is completed.
+            $table->date('returnDate')->nullable();
             $table->timestamps();
         });
     }

@@ -46,4 +46,27 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(Book::class);
     }
+
+    public function orders()
+    {
+        return $this->hasMany(Order::class);
+    }
+
+    public function rentals()
+    {
+        return $this->hasMany(RentedBooks::class);
+    }
+
+    /**
+     * Names are stored whole; the forms split them at the first space.
+     */
+    public function firstName()
+    {
+        return explode(' ', (string) $this->name, 2)[0];
+    }
+
+    public function lastName()
+    {
+        return explode(' ', (string) $this->name, 2)[1] ?? '';
+    }
 }

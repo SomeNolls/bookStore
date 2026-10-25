@@ -15,3 +15,61 @@ body {
     clip: rect(0 0 0 0);
     white-space: nowrap;
 }
+
+/* Labelled form fields — rendered by resources/js/components/Field.jsx */
+
+.site-field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+.site-field.is-wide {
+    grid-column: 1 / -1;
+}
+.site-field__label-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+}
+.site-field label {
+    font-size: 14px;
+    font-weight: 600;
+}
+.site-field__label-row a {
+    color: #1F3A2E;
+    font-size: 14px;
+    font-weight: 600;
+}
+.site-field input,
+.site-field textarea,
+.site-field select {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 0 14px;
+    border: 1px solid #D6D2C6;
+    border-radius: 10px;
+    background: #FFFFFF;
+    color: #1B1B1B;
+    font: inherit;
+}
+.site-field input,
+.site-field select {
+    height: 48px;
+}
+.site-field textarea {
+    padding: 12px 14px;
+    resize: vertical;
+}
+.site-field [aria-invalid="true"] {
+    border-color: #9A3412;
+}
+.site-field__hint {
+    color: #5A5A55;
+    font-size: 13px;
+}
+.site-field__error {
+    color: #9A3412;
+    font-size: 13px;
+    font-weight: 600;
+}

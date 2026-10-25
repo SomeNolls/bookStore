@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 
-function LogoMark() {
+export function LogoMark({ size = 34 }) {
     return (
-        <svg width="34" height="34" viewBox="0 0 34 34" aria-hidden="true">
+        <svg width={size} height={size} viewBox="0 0 34 34" aria-hidden="true">
             <rect x="2" y="4" width="6" height="26" fill="currentColor" />
             <rect x="10" y="4" width="6" height="26" fill="currentColor" />
             <rect x="18" y="4" width="6" height="26" fill="currentColor" />

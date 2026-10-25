@@ -1,9 +1,7 @@
-/* Homepage sections — Genres, BookList, Features, Newsletter (resources/js/components) */
+/* Homepage sections — Features, Genres, BookList, HowItWorks (resources/js/components) */
 
 .site-section,
-.site-section *,
-.site-newsletter,
-.site-newsletter * {
+.site-section * {
     box-sizing: border-box;
 }
 
@@ -129,8 +127,19 @@
     line-height: 1.5;
     color: #5A5A55;
 }
-.site-books__badge {
+.site-books__meta {
+    width: 100%;
     margin-top: 6px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+}
+.site-books__price {
+    color: #1F3A2E;
+    font-weight: 700;
+}
+.site-books__badge {
     padding: 4px 10px;
     border-radius: 12px;
     background: #E3ECE6;
@@ -147,100 +156,133 @@
     color: #5A5A55;
 }
 
-/* Features */
-.site-features {
-    padding: 24px 24px 56px;
+/* Features: a strip of reasons to shop here, its green stopping at the page's side padding like the banner's */
+.site-features,
+.site-features * {
+    box-sizing: border-box;
 }
-.site-features__grid {
+.site-features {
+    padding: 24px 24px 0;
+}
+.site-features__inner {
+    max-width: 1192px;
+    margin: 0 auto;
+    padding: 36px 48px;
+    border-radius: 24px;
+    background: #E3ECE6;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 20px;
+    gap: 28px;
 }
-.site-features__card {
-    padding: 28px;
+.site-features__item {
     display: flex;
-    flex-direction: column;
-    gap: 10px;
-    border: 1px solid #E4E1D8;
-    border-radius: 16px;
-    background: #FFFFFF;
+    align-items: center;
+    gap: 16px;
     color: #1F3A2E;
 }
-.site-features__title {
-    margin: 0;
-    color: #1B1B1B;
-    font-size: 18px;
+.site-features__item svg {
+    flex: none;
 }
-.site-features__text {
-    margin: 0;
-    color: #5A5A55;
-    font-size: 15px;
-    line-height: 1.6;
-}
-
-/* Newsletter */
-.site-newsletter {
-    background: #EFEBE1;
-}
-.site-newsletter__inner {
-    max-width: 1240px;
-    margin: 0 auto;
-    padding: 56px 24px;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-between;
-    gap: 24px;
-}
-.site-newsletter__copy {
-    flex: 1 1 380px;
+.site-features__copy {
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 2px;
 }
-.site-newsletter .site-section__title {
-    font-size: 32px;
-}
-.site-newsletter__text {
-    margin: 0;
-    color: #4A4A45;
+.site-features__title {
+    color: #1B1B1B;
     font-size: 16px;
 }
-.site-newsletter__form {
-    flex: 1 1 380px;
-    margin: 0;
+.site-features__text {
+    color: #3A4A40;
+    font-size: 14px;
+}
+
+/* How it works */
+.site-how,
+.site-how * {
+    box-sizing: border-box;
+}
+.site-how {
+    scroll-margin-top: 24px;
+    background: #EFEBE1;
+}
+.site-how__inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 48px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 36px;
+}
+.site-how__head {
     display: flex;
     flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 20px 48px;
+}
+.site-how__heading {
+    flex: 0 1 260px;
+    display: flex;
+    flex-direction: column;
     gap: 10px;
 }
-.site-newsletter__form input[type="email"] {
-    flex: 1 1 220px;
-    min-width: 0;
-    height: 52px;
-    padding: 0 20px;
-    border: 1px solid #CFC9BA;
-    border-radius: 26px;
-    background: #FFFFFF;
-    color: #1B1B1B;
-    font: inherit;
+.site-how__title {
+    margin: 0;
+    font-family: 'DM Serif Display', Georgia, serif;
+    font-weight: 400;
+    font-size: 30px;
 }
-.site-newsletter__form input[type="email"]:focus {
-    outline: 2px solid #1F3A2E;
-    outline-offset: 1px;
+.site-how__rule {
+    width: 96px;
+    height: 3px;
+    border-radius: 2px;
+    background: #E9C46A;
 }
-.site-newsletter__form button {
-    height: 52px;
-    padding: 0 28px;
-    border: 0;
-    border-radius: 26px;
+.site-how__intro {
+    flex: 1 1 440px;
+    margin: 0;
+    color: #3A3A3A;
+    font-size: 15px;
+    line-height: 1.65;
+}
+.site-how__steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 28px;
+}
+.site-how__step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    text-align: center;
+}
+.site-how__icon {
+    width: 56px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 28px;
     background: #1F3A2E;
     color: #FFFFFF;
-    font: inherit;
-    font-weight: 700;
-    cursor: pointer;
 }
-.site-newsletter__form button:hover {
-    background: #122219;
+.site-how__icon--2 {
+    background: #C2410C;
+}
+.site-how__icon--3 {
+    background: #B7892B;
+}
+.site-how__step-title {
+    margin: 0;
+    font-size: 17px;
+}
+.site-how__step-text {
+    max-width: 300px;
+    margin: 0;
+    color: #4A4A45;
+    font-size: 14px;
+    line-height: 1.6;
 }
 
 @media (max-width: 640px) {
@@ -255,7 +297,14 @@
         grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 20px;
     }
-    .site-newsletter__inner {
-        padding: 40px 16px;
+    .site-features {
+        padding: 16px 16px 0;
+    }
+    .site-features__inner {
+        padding: 24px 20px;
+        border-radius: 18px;
+    }
+    .site-how__inner {
+        padding: 32px 16px;
     }
 }

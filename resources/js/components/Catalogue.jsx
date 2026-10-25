@@ -113,11 +113,6 @@ export default function Catalogue({
                         </div>
                     </fieldset>
 
-                    <label className="site-catalogue__check">
-                        <input type="checkbox" name="inStock" value="1" defaultChecked={filters.inStock} onChange={submit} />
-                        In stock only
-                    </label>
-
                     <div className="site-catalogue__actions">
                         <button type="submit" className="site-catalogue__btn site-catalogue__btn--primary">Apply filters</button>
                         <a href={action} className="site-catalogue__btn">Clear filters</a>

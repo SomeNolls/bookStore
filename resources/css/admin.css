@@ -1,0 +1,102 @@
+/* Admin panel — rendered by resources/js/components/Admin.jsx, on top of the My account styles */
+
+.site-admin__panel-head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+.site-admin__panel-head h2 span {
+    font-weight: 500;
+}
+.site-cart .site-admin__add {
+    height: 40px;
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.site-admin__table {
+    min-width: 720px;
+}
+.site-admin__book {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+.site-admin__book img {
+    width: 40px;
+    height: 56px;
+    flex: none;
+    border-radius: 4px;
+    object-fit: cover;
+    background: #EEEBE3;
+}
+.site-admin__out {
+    color: #9A3412;
+    font-weight: 700;
+}
+
+.site-admin__actions {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 16px;
+}
+.site-account__link.site-admin__danger {
+    color: #9A3412;
+}
+
+.site-admin__cover {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+.site-admin__cover img {
+    width: 64px;
+    height: 90px;
+    flex: none;
+    border-radius: 6px;
+    object-fit: cover;
+}
+.site-field .site-admin__cover input {
+    height: auto;
+    padding: 12px 14px;
+}
+
+/* The status dropdown takes the badge colours from account.css */
+.site-admin__status {
+    height: 36px;
+    padding: 0 10px;
+    border: 1px solid transparent;
+    border-radius: 18px;
+    font: inherit;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+}
+.site-admin__status:focus-visible {
+    outline: 2px solid #1F3A2E;
+    outline-offset: 2px;
+}
+.site-admin__status.is-pending {
+    background: #F8EBC8;
+    color: #7A4B00;
+}
+.site-admin__status.is-shipped {
+    background: #DDEAF5;
+    color: #1E4E79;
+}
+.site-admin__status.is-delivered {
+    background: #E3ECE6;
+    color: #1F3A2E;
+}
+.site-admin__status.is-completed {
+    background: #1F3A2E;
+    color: #FFFFFF;
+}
+.site-admin__status.is-cancelled {
+    background: #F6E3D8;
+    color: #7A3410;
+}

@@ -3,73 +3,160 @@
 namespace App\Http\Controllers;
 
 use App\Models\Book;
+use App\Models\Order;
 use App\Models\RentedBooks;
-use App\Models\User;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Validation\Rule;
 use Intervention\Image\Facades\Image;
 
 class AdminController extends Controller
 {
+    public const TABS = ['books', 'add', 'orders', 'rentals'];
+
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+
+        // Everyone else is sent to their own account page.
+        $this->middleware(function ($request, $next) {
+            if (auth()->user()->admin != 1) {
+                return redirect()->route('profile.show', auth()->id());
+            }
+
+            return $next($request);
+        });
+    }
+
+    /**
+     * The admin panel; the {user} in the URL is only kept for old links.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
     public function index($user)
     {
-        $user = User::findOrFail($user);
-        $books = Book::orderBy('created_at', 'desc')->get();
-        $rentedBooks = RentedBooks::orderBy('created_at', 'desc')->get();
-        if ($user == Auth::user() && $user->admin == 1)
-        {
-            return view('profile/admin', ['user' => $user, 'books'=>$books]);
+        return $this->panel(in_array(request('tab'), self::TABS) ? request('tab') : 'books');
+    }
+
+    public function edit(Book $book)
+    {
+        return $this->panel('books', $book);
+    }
+
+    public function store()
+    {
+        $data = $this->validateBook(true);
+
+        Book::create([
+            'title' => $data['title'],
+            'author' => $data['author'],
+            'genre' => $data['genre'],
+            'description' => $data['description'],
+            'number' => $data['stock'],
+            'stock' => $data['stock'],
+            'price' => $data['price'],
+            'forRent' => $data['forRent'],
+            'rentPrice' => $data['rentPrice'],
+            'img' => $this->storeImage(),
+        ]);
+
+        return redirect()->route('admin', ['user' => auth()->id(), 'tab' => 'books'])
+            ->with('status', "\"{$data['title']}\" is added.");
+    }
+
+    public function update(Book $book)
+    {
+        $data = $this->validateBook(false);
+
+        // Stock is every copy the shop owns; number is the copies not sold or rented out.
+        $book->number = max(0, $book->number + $data['stock'] - $book->stock);
+        $book->stock = $data['stock'];
+
+        if (request()->hasFile('img')) {
+            Storage::disk('public')->delete($book->img);
+            $book->img = $this->storeImage();
         }
 
-        $user = User::find(auth()->user()->id);
-        return view('profile/profile', ['user' => $user,'rentedBooks' =>$rentedBooks, 'books'=>$books]);
+        $book->fill([
+            'title' => $data['title'],
+            'author' => $data['author'],
+            'genre' => $data['genre'],
+            'description' => $data['description'],
+            'price' => $data['price'],
+            'forRent' => $data['forRent'],
+            'rentPrice' => $data['rentPrice'],
+        ])->save();
 
-
-    }
-    public function delete($id)
-    {
-
-        $data = Book::find($id);
-        $data->delete();
-
-        return redirect("/admin/".auth()->user()->id);
-    }
-
-    public function edit($id)
-    {
-
-       $data = Book::find($id);
-       return view('books/editBook',['data' => $data]);
+        return redirect()->route('admin', ['user' => auth()->id(), 'tab' => 'books'])
+            ->with('status', "\"{$book->title}\" is saved.");
     }
 
-    public function update(Request $req)
+    public function destroy(Book $book)
     {
+        Storage::disk('public')->delete($book->img);
+        $book->delete();
 
-        $data = Book::find($req->id);
+        return redirect()->route('admin', ['user' => auth()->id(), 'tab' => 'books'])
+            ->with('status', "\"{$book->title}\" is deleted.");
+    }
 
-        $data->title = $req->title;
-        $data->description = $req->description;
-        if ($req->img != null)
-        {
-            $imagePath = request('img')->store('uploads', 'public');
+    public function updateOrder(Order $order)
+    {
+        $data = request()->validate([
+            'status' => ['required', Rule::in(array_keys(Order::STATUSES))],
+        ]);
 
-            $image = Image::make(public_path("storage/{$imagePath}"))->fit(230, 230);
-            $image->save();
-            $data->img = $imagePath;
-        }
+        $order->changeStatus($data['status']);
 
+        return redirect()->route('admin', ['user' => auth()->id(), 'tab' => 'orders'])
+            ->with('status', "Order #{$order->id} is now " . strtolower(Order::STATUSES[$order->status]) . '.');
+    }
 
-        $difference = $req->number - $data->stock;
+    public function returnRental(RentedBooks $rental)
+    {
+        optional($rental->book)->increment('forRent');
+        $rental->delete();
 
-        $data->number += $difference;
-        $data->stock = $req->number;
+        return redirect()->route('admin', ['user' => auth()->id(), 'tab' => 'rentals'])
+            ->with('status', 'The rental is marked as returned.');
+    }
 
-        $data->save();
+    private function panel($tab, $editing = null)
+    {
+        return view('profile/admin', [
+            'tab' => $tab,
+            'editing' => $editing,
+            'books' => Book::orderBy('created_at', 'desc')->get(),
+            'orders' => Order::with('items')->latest()->get(),
+            'rentals' => RentedBooks::with(['book', 'user', 'order'])->latest()->get(),
+        ]);
+    }
 
-        $books = Book::orderBy('created_at', 'desc')->get();
-        return view('profile/admin', ['user' => auth()->user(), 'books'=>$books]);
+    private function validateBook($isNew)
+    {
+        return request()->validate([
+            'title' => ['required', 'string', 'max:255'],
+            'author' => ['required', 'string', 'max:255'],
+            'genre' => ['required', 'string', 'max:255'],
+            'description' => ['required', 'string'],
+            'stock' => ['required', 'integer', 'min:0'],
+            'price' => ['required', 'numeric', 'min:0'],
+            'forRent' => ['required', 'integer', 'min:0'],
+            'rentPrice' => ['required', 'numeric', 'min:0'],
+            'img' => [$isNew ? 'required' : 'nullable', 'image'],
+        ]);
+    }
 
+    private function storeImage()
+    {
+        $imagePath = request('img')->store('uploads', 'public');
 
+        Image::make(Storage::disk('public')->path($imagePath))->save();
+
+        return $imagePath;
     }
 }

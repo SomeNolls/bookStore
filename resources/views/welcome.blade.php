@@ -12,9 +12,18 @@
     <body>
 
         @include('partials.header')
-        @include('partials.banner', ['books' => $latestBooks])
+        @include('partials.banner')
 
         <main>
+            @include('partials.react', ['component' => 'Features', 'props' => [
+                'items' => [
+                    ['icon' => 'book', 'title' => 'A large catalogue', 'text' => 'books in Bulgarian and English'],
+                    ['icon' => 'tag', 'title' => 'Fair prices', 'text' => 'clear and always up to date'],
+                    ['icon' => 'truck', 'title' => 'Delivered to your door', 'text' => 'and returned the same way'],
+                    ['icon' => 'calendar', 'title' => 'Track your rentals', 'text' => 'every due date in your account'],
+                ],
+            ]])
+
             @include('partials.react', ['component' => 'Genres', 'props' => [
                 'genres' => collect(['All', ...\App\Models\Book::GENRES])
                     ->map(fn ($name) => [
@@ -30,26 +39,20 @@
                 'books' => $latestBooks->map->toCard(),
             ]])
 
-            @include('partials.react', ['component' => 'Features', 'props' => [
-                'items' => [
-                    ['icon' => 'search', 'title' => 'Smart search & filters', 'text' => 'Filter by genre, author, price, language and availability.'],
-                    ['icon' => 'star', 'title' => 'Reader reviews', 'text' => 'Ratings and reviews from registered readers on every book.'],
-                    ['icon' => 'bag', 'title' => 'Reserve & pick up', 'text' => 'Order online and collect in store, with order tracking in your account.'],
+            @php($rentalMonths = \App\Support\Cart::RENTAL_MONTHS)
+            @include('partials.react', ['component' => 'HowItWorks', 'props' => [
+                'title' => 'How to rent books',
+                'intro' => "Renting is simple: choose a book and a rental period, have it delivered to your door, and send it back when you're done. If anything goes wrong with a rental, our team is here to help by email, phone or the contact form.",
+                'steps' => [
+                    ['icon' => 'search', 'title' => 'Rent', 'text' => 'Search by title or author and choose a rental period ('
+                        . implode(', ', array_slice($rentalMonths, 0, -1)) . ' or ' . last($rentalMonths)
+                        . " months). We'll deliver it to your door."],
+                    ['icon' => 'book', 'title' => 'Read', 'text' => 'Treat the book with care. Someone else will read it after you, so please no writing, highlighting or folded pages.'],
+                    ['icon' => 'calendar', 'title' => 'Return', 'text' => 'Send it back by courier before the due date. You can see every due date in your account.'],
                 ],
-            ]])
-
-            @include('partials.react', ['component' => 'Newsletter', 'props' => [
-                'title' => 'New books in your inbox',
-                'text' => 'A short monthly email with new arrivals and staff picks.',
-                'action' => '#',
-                'csrfToken' => csrf_token(),
             ]])
         </main>
 
         @include('partials.footer')
-
-        <div class="js-container"></div>
-
-        <script src="{{ mix('js/welcome.js') }}"></script>
     </body>
 </html>
